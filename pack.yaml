@@ -1,0 +1,9 @@
+---
+ref: data_storage
+name: data_storage
+description: Automation pack to store freely-selected typed data in datastore and retrieve it
+keywords:
+  - data store
+version: 0.1.0
+author: Hiroyasu OHYAMA
+email: user.localhost2000@gmail.com
