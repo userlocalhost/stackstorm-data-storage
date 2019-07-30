@@ -1,0 +1,16 @@
+---
+name: save_data_into_datastore
+pack: data_storage
+description: Create a webhook API to be able to save uploaded data into datastore
+enabled: true
+
+trigger:
+    type: core.st2.webhook
+    parameters:
+        url: save_data_into_datastore
+
+action:
+    ref: data_storage.set-st2kv
+    parameters:
+        key: "{{ trigger.body.key }}"
+        value: "{{ trigger.body.data }}"
