@@ -1,0 +1,23 @@
+---
+name: set-st2kv
+description: Set key-value pair to the datastore of ST2
+runner_type: python-script
+entry_point: set_st2kv.py
+enabled: true
+parameters:
+  key:
+    type: string
+    required: true
+    description: key name to set
+  value:
+    type: string
+    required: true
+    description: value corresponding to key
+  ttl:
+    type: integer
+    default: 0
+    description: TTL (seconds) of setting value
+  secret:
+    type: boolean
+    default: False
+    description: whether storing value would be encrypted, or not
