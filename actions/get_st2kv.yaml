@@ -1,0 +1,15 @@
+---
+name: get-st2kv
+description: Get a key-value pair which is stored in the datastore of ST2
+runner_type: python-script
+entry_point: get_st2kv.py
+enabled: true
+parameters:
+  key:
+    type: string
+    required: true
+    description: key name to set
+  decrypt:
+    type: boolean
+    default: False
+    description: decrypt stored value when it's true
