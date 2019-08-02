@@ -1,0 +1,22 @@
+---
+name: show_image_to_slack
+pack: data_storage
+description: Upload image data which is stored in the datastore to Slack
+runner_type: orquesta
+entry_point: workflows/show_image_to_slack.yaml
+enabled: true
+parameters:
+  key:
+    type: string
+    required: true
+    description: Key name of datastore which is corresponding to uploading data
+  channel:
+    type: string
+    description: The place where image will be posted
+    required: true
+  title:
+    type: string
+    description: Description of uploaded flie
+  text:
+    type: string
+    description: Text with uploaded file
