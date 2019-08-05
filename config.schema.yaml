@@ -1,0 +1,5 @@
+---
+slack_token:
+  description: Access token of Slack to post specified data to Slack channel
+  type: string
+  secret: True
