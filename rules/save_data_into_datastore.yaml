@@ -10,7 +10,7 @@ trigger:
         url: save_data_into_datastore
 
 action:
-    ref: data_storage.set-st2kv
+    ref: st2.kv.set
     parameters:
         key: "{{ trigger.body.key }}"
         value: "{{ trigger.body.data }}"

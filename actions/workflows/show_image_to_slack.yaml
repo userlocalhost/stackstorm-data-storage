@@ -1,0 +1,28 @@
+version: 1.0
+description: Upload image data which is stored in the datastore to Slack
+input:
+  - key
+  - channel
+  - title
+  - text
+
+tasks:
+  check_existence:
+    action: st2.kv.get
+    input:
+      key: <% ctx(key) %>
+    next:
+      - when: <% succeeded() %>
+        do: upload_image
+
+  upload_image:
+    action: data_storage.upload_data_to_slack
+    input:
+      data: "<% task(check_existence).result.result %>"
+      channel: "<% ctx(channel) %>"
+      title: "<% ctx(title) %>"
+      text: "<% ctx(text) %>"
+      file_extension: '.png'
+
+output:
+  - result: <% task(upload_image).result.result %>

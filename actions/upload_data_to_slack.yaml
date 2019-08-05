@@ -1,0 +1,31 @@
+---
+name: upload_data_to_slack
+pack: data_storage
+description: Upload specified data to Slack
+runner_type: python-script
+entry_point: upload_data_to_slack.py
+enabled: true
+parameters:
+  data:
+    type: string
+    required: true
+    description: Data context which is encoded by base64
+  channel:
+    type: string
+    description: The place where image will be posted
+    required: true
+  token:
+    type: string
+    default: "{% if st2kv.user.slack_token|string %}{{ st2kv.user.slack_token|decrypt_kv }}{% endif %}"
+    description: User token of Slack
+    secret: true
+  title:
+    type: string
+    description: Description of uploaded flie
+  text:
+    type: string
+    description: Text with uploaded file
+  file_extension:
+    type: string
+    description: Upload file extension to notify file-type to Slack
+    default: '.png'
